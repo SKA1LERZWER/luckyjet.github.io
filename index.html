@@ -12,7 +12,8 @@
       .then(html => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
-        const coefficientElement = doc.getElementById('sc-bVHCgj fcWAJi');
+        // Используйте querySelector для элементов с классами
+        const coefficientElement = doc.querySelector('.sc-bVHCgj.fcWAJi');
 
         if (coefficientElement) {
           document.getElementById('coefficient-data').textContent = coefficientElement.textContent;
