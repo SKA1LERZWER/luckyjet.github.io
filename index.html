@@ -16,13 +16,13 @@
         const coefficientElement = doc.querySelector('sc-dlWCHZ ZtkZF');
 
         if (coefficientElement) {
-          document.getElementById('coefficient-data').textContent = coefficientElement.textContent;
+          document.getElementById('main-coefficient').textContent = coefficientElement.textContent;
         } else {
-          document.getElementById('coefficient-data').textContent = 'Элемент не найден.';
+          document.getElementById('main-coefficient').textContent = 'Элемент не найден.';
         }
       })
       .catch(error => {
-        document.getElementById('coefficient-data').textContent = 'Ошибка загрузки данных: ' + error.message;
+        document.getElementById('main-coefficient').textContent = 'Ошибка загрузки данных: ' + error.message;
       });
   </script>
 </body>
