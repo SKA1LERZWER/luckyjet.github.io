@@ -1,29 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Отображение данных</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Встраиваемый сайт</title>
 </head>
 <body>
-  <div id="main-coefficient">Загрузка данных...</div>
-
-  <script>
-    fetch('https://1wzvro.top/casino/play/1play_1play_luckyjet')
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        // Используйте querySelector для элементов с классами
-        const coefficientElement = doc.querySelector('sc-dlWCHZ ZtkZF');
-
-        if (coefficientElement) {
-          document.getElementById('main-coefficient').textContent = coefficientElement.textContent;
-        } else {
-          document.getElementById('main-coefficient').textContent = 'Элемент не найден.';
-        }
-      })
-      .catch(error => {
-        document.getElementById('main-coefficient').textContent = 'Ошибка загрузки данных: ' + error.message;
-      });
-  </script>
+    <h1>Lucky Jet Casino</h1>
+    <iframe src="https://1wztiw.top/casino/play/1play_1play_luckyjet" width="100%" height="800px" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
