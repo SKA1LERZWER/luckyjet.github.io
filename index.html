@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Отображение API данных</title>
+  <title>Отображение данных API</title>
 </head>
 <body>
   <div id="api-data">Загрузка данных...</div>
 
   <script>
     const options = {
-      method: 'GET', // Измените метод, если необходимо
+      method: 'GET', // Убедитесь, что это правильный метод для вашего API
       headers: {
-        'Content-Type': 'application/json',
-        // Добавьте другие необходимые заголовки, если нужно
+        'Content-Type': 'application/json'
+        // Добавьте другие необходимые заголовки, например, авторизацию
       }
     };
 
-    fetch('sc-kWtpeL blOQNC', options)
-      .then(response => response.json())
+    // Замените 'URL_API' на фактический URL вашего API
+    fetch('sc-dlWCHZ ZtkZF', options)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Ошибка сети');
+        }
+        return response.json();
+      })
       .then(data => {
         document.getElementById('api-data').textContent = JSON.stringify(data, null, 2);
       })
       .catch(error => {
-        document.getElementById('api-data').textContent = 'Ошибка загрузки данных: ' + error;
+        document.getElementById('api-data').textContent = 'Ошибка загрузки данных: ' + error.message;
       });
   </script>
 </body>
