@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Отображение данных API</title>
+  <title>Отображение данных</title>
 </head>
 <body>
-  <div id="api-data">Загрузка данных...</div>
+  <div id="coefficient-data">Загрузка данных...</div>
 
   <script>
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-        // Добавьте заголовок авторизации, если API требует
-      }
-    };
+    // URL сайта, с которого нужно получить данные
+    fetch('https://1wzvro.top/casino/play/1play_1play_luckyjet')
+      .then(response => response.text())
+      .then(html => {
+        // Создание временного DOM для извлечения данных
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const coefficient = doc.getElementById('main-coefficient').textContent;
 
-    fetch('sc-jwZKMi haxKnO sc-inyXkq fbrAcR', options)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Ошибка сети: ' + response.status);
-        }
-        return response.json();
-      })
-      .then(data => {
-        document.getElementById('api-data').textContent = JSON.stringify(data, null, 2);
+        // Отображение данных на новой странице
+        document.getElementById('coefficient-data').textContent = coefficient;
       })
       .catch(error => {
-        document.getElementById('api-data').textContent = 'Ошибка загрузки данных: ' + error.message;
+        document.getElementById('coefficient-data').textContent = 'Ошибка загрузки данных: ' + error.message;
       });
   </script>
 </body>
