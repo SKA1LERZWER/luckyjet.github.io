@@ -7,17 +7,18 @@
   <div id="coefficient-data">Загрузка данных...</div>
 
   <script>
-    // URL сайта, с которого нужно получить данные
     fetch('https://1wzvro.top/casino/play/1play_1play_luckyjet')
       .then(response => response.text())
       .then(html => {
-        // Создание временного DOM для извлечения данных
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
-        const coefficient = doc.getElementById('main-coefficient').textContent;
+        const coefficientElement = doc.getElementById('main-coefficient');
 
-        // Отображение данных на новой странице
-        document.getElementById('coefficient-data').textContent = coefficient;
+        if (coefficientElement) {
+          document.getElementById('coefficient-data').textContent = coefficientElement.textContent;
+        } else {
+          document.getElementById('coefficient-data').textContent = 'Элемент не найден.';
+        }
       })
       .catch(error => {
         document.getElementById('coefficient-data').textContent = 'Ошибка загрузки данных: ' + error.message;
