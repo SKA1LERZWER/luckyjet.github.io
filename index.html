@@ -8,27 +8,29 @@
 </head>
 <body>
     <header>
-        <h1 class="glava">Финансовая Налоговая Служба</h1>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="service.html">Услуги</a>
-            <a href="calculator.html">Калькулятор налогов</a>
-            <a href="contact.html">Контакты</a>
-        </nav>
     </header>
 
-    <section id="home">
-        <p><a href="https://www.gosuslugi.ru/help/obratitsya_v_fns"><img src="image.JPG" width="1000" height="170" alt="Пример"></a></p>
-        <p><a href="https://kkt-online.nalog.ru/"><img src="control.JPG" width="400" height="120" alt="Пример"></a></p>
-        <p><a href="https://мывместе.рф/"><img src="dobro.JPG" width="400" height="120" alt="Пример"></a></p>
-    </section>
+    <script src="script.js">
+        const options = {
+  method: 'POST', // Измените на 'GET', если требуется
+  headers: {
+    'Content-Type': 'application/json',
+    // Добавьте здесь необходимые заголовки, например, токен авторизации
+  },
+  body: JSON.stringify({
+    // Данные, которые отправляются в запросе
+  })
+};
 
-    <footer>
-        <p>Email: info@mail.ru</p>
-        <p>Телефон: +7 (495) 123-45-67</p>
-        <p>© 2024 Финансовая Налоговая Служба. Все права защищены.</p>
-    </footer>
+fetch('URL_API', options)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Ошибка:', error);
+  });
 
-    <script src="script.js"></script>
+    </script>
 </body>
 </html>
