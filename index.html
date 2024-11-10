@@ -1,38 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuckyJet Predictor</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Отображение API данных</title>
 </head>
 <body>
-    <header>
-    </header>
+  <div id="api-data">Загрузка данных...</div>
 
-<h1>LuckyJet Predictor</h1>
+  <script>
+    const options = {
+      method: 'GET', // Измените метод, если необходимо
+      headers: {
+        'Content-Type': 'application/json',
+        // Добавьте другие необходимые заголовки, если нужно
+      }
+    };
 
-    <script src="script.js">
-        const options = {
-  method: 'POST', // Измените на 'GET', если требуется
-  headers: {
-    'Content-Type': 'application/json',
-    // Добавьте здесь необходимые заголовки, например, токен авторизации
-  },
-  body: JSON.stringify({
-    // Данные, которые отправляются в запросе
-  })
-};
-
-fetch('URL_API', options)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Ошибка:', error);
-  });
-
-    </script>
+    fetch('URL_API', options)
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('api-data').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById('api-data').textContent = 'Ошибка загрузки данных: ' + error;
+      });
+  </script>
 </body>
 </html>
