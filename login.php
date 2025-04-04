@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма Входа</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <div class="container">
+        <section id="content">
+            <form action="" onsubmit="return validateForm()">
+                <h1>Форма Входа</h1>
+                <div>
+                    <input type="text" placeholder="Логин(Например:user123)" required="" id="login" />
+                </div>
+                <div>
+                    <input type="password" placeholder="Пароль(Минимум 8 символов)" required="" id="password" />
+                </div>
+                    <input type="submit" value="Войти" />
+                    <a href="index.php">На главную</a>
+                </div>
+            </form>
+        </section>
+    </div>
+    
+</body>
+</html>
