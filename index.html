@@ -6,6 +6,172 @@
     <title>Каршеринг - Свобода движения</title>
     <link rel="stylesheet" href="style.css">
 </head>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-right: 80%;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.navbar-toggler {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 1.5em;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 10;
+    }
+
+    .nav-item {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px 20px;
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-collapse.show {
+        display: flex;
+    }
+}
+
+main {
+    padding: 20px;
+}
+
+#kvadrat {
+    margin-top: 10%;
+    margin-left: 16%;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    opacity: 50%;
+    color: white;
+    text-align: center;
+    border-radius: 1%;
+    z-index: 1; /* Задаем меньший z-index для квадрата */
+}
+
+.gays {
+    width: 100%;
+}
+
+.advantages-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-4 {
+  width: 33.333333%; /* Fixed width for each column */
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .col-4 {
+        width: 100%; /* Full width for each column on smaller screens */
+    }
+}
+
+.iconka {
+    width: 47px;
+    height: 47px;
+}
+
+.iconka2 {
+    width: 45px;
+    height: 45px;
+}
+
+.iconka3 {
+    height: 45px;
+}
+
+/* Подвал */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+    </style>
 <body>
 
     <header>
