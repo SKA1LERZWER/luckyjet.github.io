@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каршеринг - Свобода движения</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
+            gap: 20px;
+        }
+
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden; /* Для обрезки изображений */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 200px; /* Фиксированная высота для изображений */
+            object-fit: cover; /* Масштабирование и обрезка, чтобы изображение поместилось */
+            display: block; /* Убираем отступы под изображениями */
+        }
+
+        .car-card .car-details {
+            padding: 15px;
+        }
+
+        .car-card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .car-card p {
+            margin-bottom: 5px;
+        }
+
+        .button {
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+        background-color: #343a40;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            .cars-grid {
+                grid-template-columns: 1fr; /* Stack on smaller screens */
+            }
+        }
+    </style>
+<body>
+
+<header>
+        <nav class="navbar">
+            <img class="logo" src="лого.jpg" alt="Логотип">
+            <button class="navbar-toggler" id="navbarToggler">
+                <span>&#9776;</span>
+            </button>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tarif.php">Тарифы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avtomobili.php">Автомобили</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Контакты</a>
+                    </li>
+                    <?php
+    session_start();
+    if(empty($_SESSION["name"])){?>
+        <li class="nav-item">
+                        <a class="nav-link" href="register.php">Регистрация</a>
+        </li>
+        <li class="nav-item">
+                        <a class="nav-link" href="login.php">Авторизация</a>
+                    </li>
+        <?php
+        }
+        else{
+        ?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="kabinet.php">Кабинет</a>
+                    </li>
+    <?php
+    }
+    ?>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section id="cars">
+            <h2>Автомобили в нашем распоряжении</h2>
+
+            <div class="cars-grid">
+
+                <div class="car-card">
+                    <img src="toyotacorola.jpg" alt="Toyota Corolla">
+                    <div class="car-details">
+                        <h3>Toyota Corolla</h3>
+                        <p>Класс: Компакт</p>
+                        <p>Двигатель: 1.6л</p>
+                        <p>Вместимость: 5 мест</p>
+                        <a href="#" class="button">Арендовать</a>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <img src="polo.png" alt="Volkswagen Polo">
+                    <div class="car-details">
+                        <h3>Volkswagen Polo</h3>
+                        <p>Класс: Эконом</p>
+                        <p>Двигатель: 1.4л</p>
+                        <p>Вместимость: 5 мест</p>
+                        <a href="#" class="button">Арендовать</a>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <img src="hyundaicreta.jpeg" alt="Hyundai Creta">
+                    <div class="car-details">
+                        <h3>Hyundai Creta</h3>
+                        <p>Класс: Кроссовер</p>
+                        <p>Двигатель: 2.0л</p>
+                        <p>Вместимость: 5 мест</p>
+                        <a href="#" class="button">Арендовать</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ваш Город Каршеринг. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>

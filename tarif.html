@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Каршеринг - Свобода движения</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .tariff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .tariff-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .tariff-card h3 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .tariff-card p {
+      margin-bottom: 15px;
+    }
+
+    .tariff-card .price {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #e74c3c;
+    }
+
+    .tariff-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tariff-card li {
+      margin-bottom: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+    footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+    @media (max-width: 600px) {
+      .tariff-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+<header>
+        <nav class="navbar">
+            <img class="logo" src="лого.jpg" alt="Логотип">
+            <button class="navbar-toggler" id="navbarToggler">
+                <span>&#9776;</span>
+            </button>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tarif.php">Тарифы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avtomobili.php">Автомобили</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Контакты</a>
+                    </li>
+                    <?php
+    session_start();
+    if(empty($_SESSION["name"])){?>
+        <li class="nav-item">
+                        <a class="nav-link" href="register.php">Регистрация</a>
+        </li>
+        <li class="nav-item">
+                        <a class="nav-link" href="login.php">Авторизация</a>
+                    </li>
+        <?php
+        }
+        else{
+        ?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="kabinet.php">Кабинет</a>
+                    </li>
+    <?php
+    }
+    ?>
+            </div>
+        </nav>
+    </header>
+
+<body>
+
+  <div class="container">
+
+    <section id="tariffs">
+      <h2>Выберите подходящий тариф</h2>
+
+      <div class="tariff-grid">
+
+        <div class="tariff-card">
+          <h3>Поминутный</h3>
+          <p>Идеально для коротких поездок.</p>
+          <p class="price">от 5 руб/мин</p>
+          <ul>
+            <li>Включено: топливо, мойка</li>
+            <li>Страховка КАСКО и ОСАГО</li>
+            <li>Парковка в разрешенных зонах</li>
+          </ul>
+          <a href="#" class="button">Выбрать</a>
+        </div>
+
+        <div class="tariff-card">
+          <h3>Пакетный</h3>
+          <p>Выгодный вариант для поездок на несколько часов.</p>
+          <p class="price">от 300 руб/час</p>
+          <ul>
+            <li>Включено: топливо, мойка</li>
+            <li>Страховка КАСКО и ОСАГО</li>
+            <li>Фиксированная стоимость</li>
+            <li>Возможность бесплатной парковки на время тарифа</li>
+          </ul>
+          <a href="#" class="button">Выбрать</a>
+        </div>
+
+        <div class="tariff-card">
+          <h3>Суточный</h3>
+          <p>Идеально для поездок на весь день.</p>
+          <p class="price">от 1500 руб/сутки</p>
+          <ul>
+            <li>Включено: топливо, мойка</li>
+            <li>Страховка КАСКО и ОСАГО</li>
+            <li>Парковка на весь срок аренды</li>
+            <li>Ограничение по пробегу</li>
+          </ul>
+          <a href="#" class="button">Выбрать</a>
+        </div>
+
+        <div class="tariff-card">
+          <h3>Поездка за город</h3>
+          <p>Для поездок за пределы города.</p>
+          <p class="price">от 8 руб/км + поминутно</p>
+          <ul>
+            <li>Включено: топливо, мойка</li>
+            <li>Страховка КАСКО и ОСАГО</li>
+            <li>Дополнительные условия уточняйте</li>
+          </ul>
+          <a href="#" class="button">Выбрать</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Часто задаваемые вопросы</h2>
+      <ul>
+        <li>
+          <strong>Как начать пользоваться?</strong>
+          <p>Зарегистрируйтесь в приложении, загрузите документы и пройдите верификацию. После этого вы сможете бронировать и использовать автомобили.</p>
+        </li>
+        <li>
+          <strong>Как оплачивается каршеринг?</strong>
+          <p>Оплата производится с привязанной к аккаунту банковской карты.</p>
+        </li>
+        <li>
+          <strong>Что делать, если я попал в ДТП?</strong>
+          <p>В случае ДТП, свяжитесь со службой поддержки по номеру, указанному в приложении, и следуйте их инструкциям.</p>
+        </li>
+        <li>
+          <strong>Какие зоны парковки разрешены?</strong>
+          <p>Информацию о разрешенных зонах парковки можно найти в приложении.</p>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Ваш Город Каршеринг. Все права защищены.</p>
+  </footer>
+
+</body>
+</html>

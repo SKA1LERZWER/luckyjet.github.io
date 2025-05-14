@@ -1,0 +1,296 @@
+<script>
+							const button = document.getElementById('pole_login');
+							button.addEventListener('click', function(event) {
+								document.getElementById('loginlogin').style.display = "none";
+			
+		});
+</script>
+<?php 
+session_start();
+include 'db.php';
+	if (!empty($_POST)){
+$username = $_POST['txt'];
+$pass = $_POST['pswd'];
+
+$query = "SELECT * FROM users WHERE name='$username'";  
+$user = mysqli_fetch_assoc(mysqli_query($link, $query)); 
+	if (!empty($user)){
+		$query = "SELECT * FROM users WHERE pass='$pass'";
+        $password = mysqli_fetch_assoc(mysqli_query($link, $query)); 
+        if(!empty($password)){
+		$_SESSION["name"] = $username;
+		header("Location: index.php");
+        }
+        else{
+            ?>
+            <script>
+			document.getElementById('login_ot').setAttribute("style","transform: translateY(-500px)");
+            document.getElementById('loginlogin').removeAttribute("hidden");
+             </script>  
+        <?php
+    }
+    }
+	else{
+		?>
+		<script>
+        alert("Такого логина не существует!")
+        window.location.href = "login.php"
+         </script>  
+	<?php
+    }
+}
+?>
+<div id="baza">
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Дополнительные стили для формы, чтобы не мешать основному файлу */
+        .registration-container {
+            width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .registration-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Важно для правильной ширины */
+            font-size: 16px;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            border-color: #007bff; /* Цвет при фокусе как в навигации */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+                /* Дополнительные стили для формы, чтобы не мешать основному файлу */
+        .registration-container {
+            width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .registration-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Важно для правильной ширины */
+            font-size: 16px;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            border-color: #007bff; /* Цвет при фокусе как в навигации */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+
+        .btn-register {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            margin: 0 auto;        /* Добавлено для центрирования кнопки */
+            display: block;         /* Добавлено для центрирования кнопки */
+            width: fit-content;     /*  Чтобы кнопка не растягивалась на всю ширину*/
+        }
+
+        .btn-register:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-register {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+        <nav class="navbar">
+            <img class="logo" src="лого.jpg" alt="Логотип">
+            <button class="navbar-toggler" id="navbarToggler">
+                <span>&#9776;</span>
+            </button>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tarif.php">Тарифы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="avtomobili.php">Автомобили</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Контакты</a>
+                    </li>
+                    <?php
+    session_start();
+    if(empty($_SESSION["name"])){?>
+        <li class="nav-item">
+                        <a class="nav-link" href="register.php">Регистрация</a>
+        </li>
+        <li class="nav-item">
+                        <a class="nav-link" href="login.php">Авторизация</a>
+                    </li>
+        <?php
+        }
+        else{
+        ?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="kabinet.php">Кабинет</a>
+                    </li>
+    <?php
+    }
+    ?>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="registration-container">
+            <h2>Авторизация</h2>
+            <form action="loginimsya.php" method="POST" onsubmit="return validateForm()">
+            <p class="nelogin" id="loginlogin" hidden>Введен не верный логин, или пароль</p>
+                <div class="form-group">
+                    <label for="name">Логин:</label>
+                    <input type="text" placeholder="Логин(Например:user123)" name="txt" required="" id="login" />
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" placeholder="Пароль(Минимум 8 символов)" name="pswd" required="" id="password" />
+                    <span class="error-message"></span>
+                </div>
+                <button type="submit" class="btn-register">Войти</button>
+                <div class="login-link">
+                    Нет аккаунта? <a href="login.html">Создайте</a>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Каршеринг. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
