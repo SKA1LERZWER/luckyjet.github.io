@@ -1,0 +1,389 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Используем Roboto */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Пример цвета для ссылок */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    text-decoration: none;
+
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo img {
+    width: 120px;
+}
+
+header nav {
+    display: flex; /*  Используем Flexbox  */
+    justify-content: center; /* Горизонтальное центрирование (если нужно) */
+    align-items: center; /*  Вертикальное центрирование (если нужно) */
+    padding: 0; /* Обнуляем padding, который может добавлять лишнее пространство */
+}
+
+nav a {
+    margin: 0 50px;  /*  Уменьшаем горизонтальные отступы (слева и справа) */
+    color: #000000;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 600px; /* Увеличьте высоту */
+    background: url('hero-bg.jpg') center/cover no-repeat; /* Замените hero-bg.jpg на вашу картинку */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('фон.jpg');
+    background-repeat: no-repeat;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: gray;
+}
+
+.cta-button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+
+/* Advantages Section */
+.advantages {
+    padding: 50px 0;
+}
+
+.advantages h2 {
+    text-align: center;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивный макет */
+    gap: 30px;
+}
+
+.advantage-item {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.advantage-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-item img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.advantage-item h3 {
+    margin-bottom: 10px;
+}
+
+/* Services Section */
+.services {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.services h2 {
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Чтобы изображение не выходило за рамки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px; /* Задайте фиксированную высоту для изображений */
+    object-fit: cover; /* Масштабировать изображение, чтобы заполнить контейнер, обрезая при необходимости */
+    display: block; /* Важно для правильного отображения */
+}
+
+.service-item h3 {
+    padding: 15px;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.service-item p {
+    padding: 0 15px 15px;
+    margin: 0;
+}
+
+.service-link {
+    display: inline-block;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.service-link:hover {
+    background-color: #000000;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.testimonials h2 {
+    text-align: center;
+}
+
+.testimonial-content {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-author {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+
+/* Contacts Section */
+.contacts {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.contacts h2 {
+    text-align: center;
+}
+
+.contacts-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-item img {
+    width: 30px;
+    margin-right: 15px;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    margin-bottom: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit; /* Наследуем шрифт */
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 100px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 100px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.footer-nav li {
+    margin-left: 20px;
+}
+
+.footer-nav a {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #000000;
+}
+
+#scroll_top{
+    position: fixed;
+    background-color: #007bff;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 22px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+}
+
+#scroll_top:before{
+content: "";
+text-align: center;
+position: absolute;
+width: 20px;
+height: 20px;
+left: 12px;
+top: 12px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 17V4M3 10l7-7 7 7'/%3E%3C/g%3E%3C/svg%3E");
+}
